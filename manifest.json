@@ -1,8 +1,8 @@
 {
-  "name": "Component Checklist",
-  "id": "1127989341218734781",
+  "name": "Figma Checklist",
+  "id": "1303575060255223527",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "dist/app.js",
   "editorType": [
     "figma",
     "figjam"

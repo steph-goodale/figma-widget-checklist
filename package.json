@@ -1,16 +1,24 @@
 {
-  "name": "figma-widget-component-checklist",
-  "version": "0.1.0",
+  "name": "figma-widget-checklist",
+  "version": "1.0.0",
   "description": "This is Figma widget that contains a basic, best-practice checklist for design system component development",
-  "main": "code.js",
-  "scripts": {
-    "build": "tsc -p tsconfig.json"
-  },
-  "author": "Matthew Rea",
+  "author": "Matthew Rea | Steph Goodale",
   "license": "MIT",
+  "main": "dist/app.js",
+  "scripts": {
+    "format": "prettier --write src",
+    "tsc": "tsc --noEmit",
+    "tsc:watch": "npm run tsc -- --watch --preserveWatchOutput",
+    "build": "npm run tsc && esbuild src/app.tsx --bundle --outfile=dist/app.js",
+    "build:watch": "npm run build -- --watch",
+    "dev": "npm run format ; concurrently --kill-others \"npm run tsc:watch\" \"npm run build:watch\""
+  },
   "devDependencies": {
     "@figma/plugin-typings": "*",
-    "@figma/widget-typings": "*",
+    "@figma/widget-typings": "^1.5.0",
+    "concurrently": "^8.2.0",
+    "esbuild": "^0.18.9",
+    "prettier": "^2.8.8",
     "typescript": "*"
   }
 }

@@ -1,46 +1,84 @@
 ### About
-This is Figma widget that contains a basic, best-practice checklist for design system component development. Loosely based on Nathan Curtis’ Figma Component Review article: https://medium.com/eightshapes-llc/the-figma-component-review-f42114450b4d 
+
+This is Figma widget that contains a basic, best-practice checklist for design system component development. Loosely based on Nathan Curtis’ Figma Component Review article: https://medium.com/eightshapes-llc/the-figma-component-review-f42114450b4d
 
 When placed on the Figma canvas near a component, the idea is that the checklist items help ensure the component is properly structured and robust enough for use in a design system setting.
 
 ![GIF](component-checklist.gif)
 
+### Development Setup
 
+Below are the steps to get your widget running locally for development purposes. You can also find instructions at https://www.figma.com/widget-docs/setup-guide/.
 
-### Setup
-Below are the steps to get your widget running. You can also find instructions at:
+1. **Download the Figma desktop app**
 
-https://www.figma.com/widget-docs/setup-guide/
+   Download from your browser and walk through the installer: https://www.figma.com/downloads/.
 
-This widget template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+2. **Download Visual Studio Code (or your choice of IDE)**
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+   Download from your browser and walk through the installer: https://code.visualstudio.com/.
 
-https://nodejs.org/en/download/
+   Once complete, open VS Code. In your top toolbar, select "File > Open" and open the directory containing this app code.
 
-Next, install TypeScript and the latest type definitions by running:
+3. **Download Node & NPM**
 
-npm install
+   This will allow you to install TypeScript and other libraries.
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+   **OPTION A**
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+   If you already have `nvm` installed, open your terminal ("Terminal > New Terminal") and run:
 
-For more information, visit https://www.typescriptlang.org/
+    ```
+    nvm install v18.17.1
+    nvm use
+    nvm alias default 18.17.1
+    ```
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+   **OPTION B**
 
-We recommend writing TypeScript code using Visual Studio code:
+   Otherwise, you can download it from your browser:
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-   then select "tsc: watch - tsconfig.json". You will have to do this again every time
-   you reopen Visual Studio Code.
+   - Mac 64-bit: https://nodejs.org/dist/v18.17.1/node-v18.17.1.pkg
+   - Windows 64-bit: https://nodejs.org/dist/v18.17.1/node-v18.17.1-x64.msi
+   - Other download options: https://nodejs.org/dist/v18.17.1/
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+   Go through the installer steps. Once complete, open your terminal ("Terminal > New Terminal") and run:
+
+    ```
+    nvm use
+    nvm alias default 18.17.1
+    ```
+
+4. **Compile & run your app**
+
+   Using TypeScript requires a compiler to convert TypeScript (`src/app.tsx`) into JavaScript (`dist/app.js`) for the browser to run.
+
+   In your terminal ("Terminal > New Terminal"), run the following commands:
+
+   1. Install the dependencies:
+       ```
+       npm install
+       ```
+   2. Compile TS to JS and watch for file changes:
+       ```
+       npm run dev
+       ```
+      You will have to do this again every time you reopen Visual Studio Code.
+
+5. **Watch your changes in Figma desktop**
+
+   In Figma desktop, select from the top toolbar: "Widgets > Development > Import widget from manifest...". Navigate into this code directory and select the `manifest.json` file.
+   Now when you go to "Widgets > Development", you should see a widget called "UX Checklist Concept". Select this and the widget should render on the page in front of you!
+
+### NPM Scripts
+
+-   `npm run format`: formats code according to the 'prettier' rules in `./prettierrc.json`
+-   `npm run tsc`: ensures that our TS is compiling, without producing any JS
+-   `npm run tsc:watch`: ensures that our TS is compiling, without producing any JS, and re-runs as code changes are made
+-   `npm run build`: compiles and bundles our TS app (`./src/app.tsx`) into JS (`./dist/app.js`)
+-   `npm run build:watch`: compiles and bundles our TS app (`./src/app.tsx`) into JS (`./dist/app.js`), and re-runs as code changes are made
+-   `npm run dev`: runs all commands that are needed to serve the app locally and develop continually
+
+### Credits
+
+Originally created by [Matthew Rea](https://github.com/nyan-matt/figma-widget-component-checklist). Expanded for internal usage by Workday design teams by [Steph Goodale](https://github.com/stephgiftbit/figma-widget-checklist).
