@@ -1,8 +1,8 @@
-import {Task} from "./Task";
+import { Category } from "./Category";
 
 export type Checklist = {
     id: string;
     title: string;
     subtitle: string;
-    taskList: Task[];
+    categories: Category[];
 };

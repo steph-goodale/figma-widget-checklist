@@ -1,9 +1,14 @@
 import { Task } from "../../model/Task";
+import {Category} from "../../model/Category";
 
 const { widget } = figma;
 const { AutoLayout, SVG } = widget;
 
-export const TaskComponent = (task: Task, cycleStatus: (task: Task) => void) => {
+export const TaskComponent = (
+    category: Category,
+    task: Task,
+    cycleStatus: (category: Category, task: Task) => void
+) => {
     return (
         <AutoLayout
             key={task.id}
@@ -20,7 +25,7 @@ export const TaskComponent = (task: Task, cycleStatus: (task: Task) => void) => 
             width="fill-parent"
             overflow="visible"
             hoverStyle={{ fill: "#D7EAFC" }}
-            onClick={() => cycleStatus(task)}
+            onClick={() => cycleStatus(category, task)}
         >
             <AutoLayout
                 name="TaskStatus"

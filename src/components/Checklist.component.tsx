@@ -1,8 +1,9 @@
 import {getNextStatus} from "../utils/statusHelper";
 import {ChecklistSubtitleComponent, ChecklistTitleComponent} from "./partials/ChecklistTitle.component";
-import {TaskComponent} from "./partials/Task.component";
 import {Task} from "../model/Task";
 import {Checklist} from "../model/Checklist";
+import {CategoryComponent} from "./partials/Category.component";
+import {Category} from "../model/Category";
 
 const { widget } = figma;
 const { AutoLayout, useSyncedState } = widget;
@@ -10,14 +11,15 @@ const { AutoLayout, useSyncedState } = widget;
 export const ChecklistComponent = (initialChecklist: Checklist) => {
     const [checklist, setChecklist] = useSyncedState("checklist", () => initialChecklist);
 
-    function cycleStatus(task: Task) {
+    const cycleStatus = (category: Category, task: Task) => {
         setChecklist(() => {
             const checklistCopy = Object.assign({}, checklist);
-            const taskCopy = checklistCopy ? checklistCopy.taskList.find((t) => t.id === task.id) : undefined;
+            const categoryCopy = checklistCopy.categories.find((c) => c.id === category.id);
+            const taskCopy = categoryCopy ? categoryCopy.taskList.find((t) => t.id === task.id) : undefined;
             if (taskCopy) taskCopy.status = getNextStatus(task.status.label);
             return checklistCopy;
         });
-    }
+    };
 
     const resetChecklist = () => setChecklist(initialChecklist);
 
@@ -50,9 +52,7 @@ export const ChecklistComponent = (initialChecklist: Checklist) => {
                 {ChecklistSubtitleComponent(checklist.subtitle)}
             </AutoLayout>
 
-            {checklist.taskList.map((item) => {
-                return TaskComponent(item, cycleStatus);
-            })}
+            {checklist.categories.map((category, index) => CategoryComponent(category, index, cycleStatus))}
         </AutoLayout>
     );
 };
