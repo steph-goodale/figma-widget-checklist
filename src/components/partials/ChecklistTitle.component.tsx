@@ -1,9 +1,9 @@
-import { headerIcon } from "../../assets/icons";
+import { headerIcon, resetIcon } from "../../assets/icons";
 
 const { widget } = figma;
 const { AutoLayout, Text, SVG } = widget;
 
-export const ChecklistTitleComponent = () => (
+export const ChecklistTitleComponent = (title: string, resetChecklist: () => void) => (
     <AutoLayout
         name="HeaderTitle"
         direction="horizontal"
@@ -29,12 +29,14 @@ export const ChecklistTitleComponent = () => (
             textCase="upper"
             verticalAlignText="center"
         >
-            Component Checklist
+            {title}
         </Text>
+
+        <SVG src={resetIcon} onClick={resetChecklist} tooltip="Reset All" />
     </AutoLayout>
 );
 
-export const ChecklistSubtitleComponent = () => (
+export const ChecklistSubtitleComponent = (subtitle: string) => (
     <AutoLayout
         name="HeaderText"
         width="fill-parent"
@@ -46,7 +48,7 @@ export const ChecklistSubtitleComponent = () => (
         }}
     >
         <Text fill="#333" fontFamily="Roboto" fontSize={24} fontWeight={400} lineHeight={40} width="fill-parent">
-            Check these things off
+            {subtitle}
         </Text>
     </AutoLayout>
 );

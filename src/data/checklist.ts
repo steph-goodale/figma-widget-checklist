@@ -1,7 +1,8 @@
 import { undeterminedIcon } from "../assets/icons";
 import { Task } from "../model/Task";
+import {Checklist} from "../model/Checklist";
 
-export const initialChecklist: Task[] = [
+const initialTasks: Task[] = [
     {
         id: "name",
         title: "Name",
@@ -105,3 +106,10 @@ export const initialChecklist: Task[] = [
         },
     },
 ];
+
+export const initialChecklist: Checklist = {
+    id: "component_checklist",
+    title: "Component Checklist",
+    subtitle: "Toggle checklist status to success, failure, or not applicable",
+    taskList: initialTasks
+}
