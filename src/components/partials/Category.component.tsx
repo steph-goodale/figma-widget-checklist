@@ -11,7 +11,7 @@ export const CategoryComponent = (
     index: number,
     cycleStatus: (category: Category, task: Task) => void
 ) => {
-    const [hidden, setHidden] = useSyncedState(`category_hidden_${category.id}`, () => (index !== 0));
+    const [hidden, setHidden] = useSyncedState(`category_hidden_${category.id}`, () => index !== 0);
 
     return (
         <AutoLayout

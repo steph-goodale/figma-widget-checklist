@@ -1,8 +1,8 @@
 ### About
 
-This is Figma widget that contains a basic, best-practice checklist for design system component development. Loosely based on Nathan Curtis’ Figma Component Review article: https://medium.com/eightshapes-llc/the-figma-component-review-f42114450b4d
+This is Figma widget that contains a basic, best-practice checklist for development following the [Shape Up process by Basecamp](https://basecamp.com/shapeup). 
 
-When placed on the Figma canvas near a component, the idea is that the checklist items help ensure the component is properly structured and robust enough for use in a design system setting.
+This checklist can be used on a Figma canvas in conjunction with other visualizations to represent a project's path in the Shape Up process and development scope.
 
 ![GIF](component-checklist.gif)
 
@@ -81,4 +81,4 @@ Below are the steps to get your widget running locally for development purposes.
 
 ### Credits
 
-Originally created by [Matthew Rea](https://github.com/nyan-matt/figma-widget-component-checklist). Expanded for internal usage by Workday design teams by [Steph Goodale](https://github.com/stephgiftbit/figma-widget-checklist).
+Originally created by [Matthew Rea](https://github.com/nyan-matt/figma-widget-component-checklist). Expanded for development usage by [Steph Goodale](https://github.com/stephgiftbit/figma-widget-checklist).

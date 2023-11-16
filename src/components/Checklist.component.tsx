@@ -1,9 +1,9 @@
-import {getNextStatus} from "../utils/statusHelper";
-import {ChecklistSubtitleComponent, ChecklistTitleComponent} from "./partials/ChecklistTitle.component";
-import {Task} from "../model/Task";
-import {Checklist} from "../model/Checklist";
-import {CategoryComponent} from "./partials/Category.component";
-import {Category} from "../model/Category";
+import { getNextStatus } from "../utils/statusHelper";
+import { ChecklistSubtitleComponent, ChecklistTitleComponent } from "./partials/ChecklistTitle.component";
+import { Task } from "../model/Task";
+import { Checklist } from "../model/Checklist";
+import { CategoryComponent } from "./partials/Category.component";
+import { Category } from "../model/Category";
 
 const { widget } = figma;
 const { AutoLayout, useSyncedState } = widget;

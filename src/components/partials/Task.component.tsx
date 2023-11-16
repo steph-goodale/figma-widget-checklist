@@ -1,5 +1,5 @@
 import { Task } from "../../model/Task";
-import {Category} from "../../model/Category";
+import { Category } from "../../model/Category";
 
 const { widget } = figma;
 const { AutoLayout, SVG } = widget;

@@ -1,6 +1,6 @@
 import { ChecklistComponent } from "./components/Checklist.component";
-import {initialChecklist} from "./data/checklist";
+import { shapeUpChecklist } from "./data/shapeUpChecklist";
 
 const { widget } = figma;
 
-widget.register(() => ChecklistComponent(initialChecklist));
+widget.register(() => ChecklistComponent(shapeUpChecklist));
